@@ -19,9 +19,9 @@ class Controller extends BaseController
 
     public function create_ajax(Request $request)
     {
-       
+      
         $store= new Language();
-        $store->language=json_encode($request->toArray());
+        $store->language=json_encode($request['details']);
         $store->save();
 
         return response()->json(['success' => 'Post created successfully.']);

@@ -89,13 +89,13 @@
     <script type="text/javascript">
         $(".btn-submit").click(function(e) {
             e.preventDefault();
-
+          
             $.ajax({
                 type: 'POST',
                 url: "{{ route('ajax.data') }}",
                 data: {
                     "_token": "{{ csrf_token() }}",
-                    details: $("form").serialize(),
+                    details: $("form").serializeArray(),
 
                 },
                 success: function(data) {
