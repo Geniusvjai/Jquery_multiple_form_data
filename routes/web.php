@@ -18,7 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::post('create-data',[Controller::class,'create_ajax'])->name('ajax.data');
-Route::get('edit',[Controller::class,'show_language'])->name('get_language');
+Route::post('create-data', [Controller::class, 'create_ajax'])->name('ajax.data');
+Route::get('edit', [Controller::class, 'show_language'])->name('get_language');
 
-Route::get('update',[Controller::class,'update'])->name('update.data');
+Route::get('update', [Controller::class, 'update'])->name('update.data');
