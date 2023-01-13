@@ -100,8 +100,6 @@
                 dataType: 'json',
                 success: function(response) {
 
-
-
                 }
             });
         });
@@ -241,4 +239,3 @@
 </body>
 
 </html>
-
