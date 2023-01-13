@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 12, 2023 at 11:36 AM
+-- Generation Time: Jan 13, 2023 at 06:18 AM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -49,13 +49,6 @@ CREATE TABLE `languages` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
---
--- Dumping data for table `languages`
---
-
-INSERT INTO `languages` (`id`, `language`, `created_at`, `updated_at`) VALUES
-(1, '{\"_token\":\"egWu5w4wCULMUINJP6V7r3gEWDRQvwGm9v4Vyx9d\",\"details\":\"language1=Marathi&type1=Basic&language2=shekhawati&type2=FLuent&language3=English&type3=Intermediate\"}', '2023-01-12 05:05:07', '2023-01-12 05:05:07');
 
 -- --------------------------------------------------------
 
@@ -186,7 +179,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `languages`
 --
 ALTER TABLE `languages`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `migrations`

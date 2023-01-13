@@ -8,6 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <!-- Bootstrap CSS -->
+    <link rel="shortcut icon" href="{{ asset('css/favicon.ico')}}">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
         integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
 
@@ -17,7 +18,7 @@
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
 
     <!-- custom styling -->
-    <link rel="stylesheet" type="text/css" href="style.css">
+    {{-- <link rel="stylesheet" type="text/css" href="style.css"> --}}
 
 
     <!-- <script src="static/js/jquery.min.js"></script> -->
@@ -38,7 +39,7 @@
             </div>
 
             <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="edit">
                     Add
                 </button>
 
@@ -71,9 +72,13 @@
                         </form>
                         <div class="row ml-0 bg-light mt-3 border py-3">
                             <div class="col-md-12">
+
+
                                 <button class="btn btn-outline-lite py-0 add_new_frm_field_btn"><i
                                         class="fas fa-plus add_icon"></i> Add New
                                     field row</button>
+
+
                             </div>
                         </div>
                     </div>
@@ -86,10 +91,25 @@
         </div>
     </div>
 
+    <script>
+        $('#edit').click(function(){
+            $.ajax({
+           url: '{{ route("get_language") }}',
+           type: 'get',
+           dataType: 'json',
+           success: function(data){
+            createRows(data);
+              
+
+           }
+         });
+        });
+    </script>
+
     <script type="text/javascript">
         $(".btn-submit").click(function(e) {
             e.preventDefault();
-          
+
             $.ajax({
                 type: 'POST',
                 url: "{{ route('ajax.data') }}",
@@ -159,6 +179,19 @@
                 $(".form_field_outer").find(".remove_node_btn_frm_field").first().prop("disabled", true);
             });
         });
+
+
+        $('.add_new_frm_field_btn').click(function() {
+            var count = 0;
+            $(".form_field_outer_row").each(function() {
+
+                count += 1;
+                if (count >= 5) {
+                    $('.add_new_frm_field_btn').hide();
+                }
+            });
+        })
+
 
 
         ///======Clone method
